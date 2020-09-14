@@ -9,15 +9,28 @@
 [node name="TestWorld" type="Spatial"]
 
 [node name="HovCraft" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79153, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.78724, 39.3819 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
+transform = Transform( 200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 2 )
+
+[node name="StaticBody2" type="StaticBody" parent="."]
+transform = Transform( 200, 0, 0, 0, 0.910467, 82.7162, 0, -0.413581, 182.093, 0, 0, 35.0775 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
+shape = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.346559, 0, 0.938028, 0, 1, 0, -0.938028, 0, 0.346559, 53.544, 13.809, 55.965 )
+current = true
