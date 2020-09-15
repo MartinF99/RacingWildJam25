@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "VehicleBody",
+"class": "Car",
+"language": "GDScript",
+"path": "res://Scenes/Car.gd"
+}, {
 "base": "Node",
 "class": "PIDController",
 "language": "GDScript",
 "path": "res://Scenes/PIDController.gd"
 } ]
 _global_script_class_icons={
+"Car": "",
 "PIDController": ""
 }
 

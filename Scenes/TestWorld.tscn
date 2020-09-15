@@ -1,15 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/HoverCraft.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Car.tscn" type="PackedScene" id=1]
 
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="BoxShape" id=2]
 
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.219608, 1, 0, 1 )
+
 [node name="TestWorld" type="Spatial"]
 
-[node name="HovCraft" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.78724, 39.3819 )
+[node name="Car" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30.9594, 52.5662 )
+engine_force = 1000.0
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0, 0 )
@@ -25,12 +29,16 @@ shape = SubResource( 2 )
 transform = Transform( 200, 0, 0, 0, 0.910467, 82.7162, 0, -0.413581, 182.093, 0, 0, 35.0775 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 3.49246e-10, 1, 0, 0, 0 )
 mesh = SubResource( 1 )
-material/0 = null
+material/0 = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
 shape = SubResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.346559, 0, 0.938028, 0, 1, 0, -0.938028, 0, 0.346559, 53.544, 13.809, 55.965 )
-current = true
+transform = Transform( 0.346559, 0, 0.938028, 0, 1, 0, -0.938028, 0, 0.346559, 47.6906, 13.809, 55.965 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.988287, 0.152606, 0, -0.152606, -0.988287, 0, 175.869, 0 )
+shadow_enabled = true

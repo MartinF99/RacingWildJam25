@@ -27,9 +27,39 @@ material/0 = SubResource( 2 )
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 3 )
 
-[node name="RayCast" type="RayCast" parent="."]
+[node name="RayCastRight" type="RayCast" parent="." groups=[
+"stabilizers",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.366863, 0, 0 )
 enabled = true
-cast_to = Vector3( 0, -10, 0 )
+cast_to = Vector3( 0, -2, 0 )
+
+[node name="GroundRay" type="RayCast" parent="." groups=[
+"stabilizers",
+]]
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
+
+[node name="RayCastLeft" type="RayCast" parent="." groups=[
+"stabilizers",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46354, 0, 0 )
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
+
+[node name="RayCastRear" type="RayCast" parent="." groups=[
+"stabilizers",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
+
+[node name="RayCastFront" type="RayCast" parent="." groups=[
+"stabilizers",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
 
 [node name="PIDController" type="Node" parent="."]
 script = ExtResource( 2 )
