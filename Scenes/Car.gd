@@ -1,13 +1,13 @@
 extends VehicleBody
 class_name Car
 
-export var engine_force_max : float = 200 
+export var engine_force_max : float = 200
 export var brake_force_max : float = 50
 export var steering_angle_max : float = 1
 export var steering_velocity : float = 5
 
 var steer_target : float = 0
-var steering_angle : float = 0 
+var steering_angle : float = 0
 var acceleration : float = 0
 var brake_val : float = 0
 var steer_val : float = 0
@@ -27,7 +27,7 @@ func _process(delta):
 	if Input.is_action_pressed("left"):
 		steer_val = 1
 	if Input.is_action_pressed("right"):
-		steer_val = -1 
+		steer_val = -1
 
 func _physics_process(delta):
 	engine_force = acceleration * engine_force_max

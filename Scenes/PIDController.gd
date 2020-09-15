@@ -17,6 +17,6 @@ func seek(target : float, current : float, delta : float) -> float:
 	var derivate = (prop - lastpropo) / delta
 	integral += prop * delta
 	lastpropo = prop
-	var ret_val : float = proportc * prop + integralc * integral + derivatec * derivate 
+	var ret_val : float = proportc * prop + integralc * integral + derivatec * derivate
 	ret_val = clamp(ret_val, minimum, maximum)
 	return ret_val

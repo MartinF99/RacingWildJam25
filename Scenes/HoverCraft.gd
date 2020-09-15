@@ -21,6 +21,9 @@ var brake : bool = false
 var drag : float
 var speed : float
 
+
+var hit_info
+
 #onready var
 var ground_rays : Array
 onready var ground_ray_origin : RayCast = $GroundRay
@@ -66,10 +69,6 @@ func _physics_process(delta) -> void:
 	add_force(propulsion(is_on_ground) + adjust_gravity(is_on_ground) + hover_force(delta, ground_ray_origin,is_on_ground), Vector3.ZERO)
 
 
-func _integrate_forces(state: PhysicsDirectBodyState) -> void:
-	pass
-
-
 func turn():
 	var rotation_torque : float = rudder - angular_velocity.y
 	add_torque(Vector3(0, rotation_torque, 0))
@@ -83,16 +82,16 @@ func hover_force(delta : float, ground_ray : RayCast, is_on_ground : bool) -> Ve
 	return ground_ray.get_collision_normal().normalized() * hover_force * percentage_of_force
 
 
-#func align_to_ground() -> void:
-#	var ground_normal : Vector3 = Vector3.UP
-#	if is_on_ground:
-#		ground_normal = ground_ray.get_collision_normal().normalized()
-#	var xform = align_to_y(global_transform, ground_normal)
-#	var lin_vel = linear_velocity
-#	var ang_vel = angular_velocity
-#	global_transform = global_transform.interpolate_with(xform, 0.2)
-#	linear_velocity = lin_vel
-#	angular_velocity = ang_vel
+func align_to_ground() -> void:
+	var ground_normal : Vector3 = Vector3.UP
+	if is_on_ground:
+		ground_normal = ground_ray.get_collision_normal().normalized()
+	var xform = align_to_y(global_transform, ground_normal)
+	var lin_vel = linear_velocity
+	var ang_vel = angular_velocity
+	global_transform = global_transform.interpolate_with(xform, 0.2)
+	linear_velocity = lin_vel
+	angular_velocity = ang_vel
 
 
 func align_to_y(xform : Transform, up : Vector3) -> Transform:
@@ -103,7 +102,7 @@ func align_to_y(xform : Transform, up : Vector3) -> Transform:
 
 
 
-func adjust_gravity(is_on_ground : bool ) -> Vector3:
+func adjust_gravity(is_on_ground : bool) -> Vector3:
 	if is_on_ground:
 		return gravity_ground * Vector3.DOWN
 	else:
@@ -111,7 +110,8 @@ func adjust_gravity(is_on_ground : bool ) -> Vector3:
 
 
 func check_ground(ground_ray : RayCast) -> bool:
-		return ground_ray.is_colliding()
+	hit_info = ground_ray.get_collider()
+	return ground_ray.is_colliding()
 
 
 func propulsion(is_on_ground) -> Vector3:

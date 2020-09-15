@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scenes/HoverCraft.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/HoverCraftNew.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/PIDController.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/InterpolatedCamera.gd" type="Script" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -27,42 +28,22 @@ material/0 = SubResource( 2 )
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 3 )
 
-[node name="RayCastRight" type="RayCast" parent="." groups=[
-"stabilizers",
-]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.366863, 0, 0 )
-enabled = true
-cast_to = Vector3( 0, -2, 0 )
-
 [node name="GroundRay" type="RayCast" parent="." groups=[
 "stabilizers",
 ]]
 enabled = true
 cast_to = Vector3( 0, -2, 0 )
 
-[node name="RayCastLeft" type="RayCast" parent="." groups=[
-"stabilizers",
-]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46354, 0, 0 )
-enabled = true
-cast_to = Vector3( 0, -2, 0 )
-
-[node name="RayCastRear" type="RayCast" parent="." groups=[
-"stabilizers",
-]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
-enabled = true
-cast_to = Vector3( 0, -2, 0 )
-
-[node name="RayCastFront" type="RayCast" parent="." groups=[
-"stabilizers",
-]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
-enabled = true
-cast_to = Vector3( 0, -2, 0 )
-
 [node name="PIDController" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.983036, 4.81471 )
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340991, 4.21598 )
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.3962 )
+current = true
+target = NodePath("../Spatial")
+speed = 5.0
+enabled = true
+script = ExtResource( 4 )
