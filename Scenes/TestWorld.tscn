@@ -44,5 +44,4 @@ transform = Transform( 1, 0, 0, 0, -0.988287, 0.152606, 0, -0.152606, -0.988287,
 shadow_enabled = true
 
 [node name="HoverCraft" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 8.81585, 5 )
-gravity_scale = 1.0
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 5, 12 )
