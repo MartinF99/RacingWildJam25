@@ -17,8 +17,8 @@ func _ready():
 	add_child(current_vehicle)
 
 
-func _process(delta):
-	if Input.is_action_pressed("switch"):
+func _input(event):
+	if event.is_action_pressed("switch"):
 		switch()
 
 
