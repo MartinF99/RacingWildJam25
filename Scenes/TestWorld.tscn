@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/HoverCraft.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -43,5 +43,4 @@ transform = Transform( 0.346559, 0, 0.938028, 0, 1, 0, -0.938028, 0, 0.346559, 4
 transform = Transform( 1, 0, 0, 0, -0.988287, 0.152606, 0, -0.152606, -0.988287, 0, 175.869, 0 )
 shadow_enabled = true
 
-[node name="HoverCraft" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 5, 12 )
+[node name="Player" parent="." instance=ExtResource( 2 )]

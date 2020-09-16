@@ -8,7 +8,15 @@ func _ready():
 	angular_damp = 0.99
 	gravity_scale = 5
 
-
+func _physics_process(delta):
+	if Input.is_action_pressed("forward"):
+		go_forward(delta)
+	if Input.is_action_pressed("back"):
+		go_backwards(delta)
+	if Input.is_action_pressed("left"):
+		turn_left(delta)
+	if Input.is_action_pressed("right"):
+		turn_right(delta)
 
 func go_forward(delta: float):
 	add_central_force(global_transform.basis.xform(Vector3.FORWARD) * PlayerSpeed * delta)
