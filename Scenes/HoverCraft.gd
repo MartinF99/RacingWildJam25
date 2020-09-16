@@ -20,7 +20,7 @@ func _physics_process(delta):
 
 func go_forward(delta: float):
 	add_central_force(global_transform.basis.xform(Vector3.FORWARD) * PlayerSpeed * delta)
-	
+
 func go_backwards(delta: float):
 	add_central_force(global_transform.basis.xform(Vector3.FORWARD) * -PlayerSpeed * delta)
 
