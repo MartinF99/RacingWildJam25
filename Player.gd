@@ -15,6 +15,7 @@ func _ready():
 	current_vehicle = car_scene.instance()
 	current_vehicle_name = "car"
 	add_child(current_vehicle)
+	
 
 
 func _input(event):
@@ -24,6 +25,7 @@ func _input(event):
 
 func switch():
 	var glob_trans = current_vehicle.global_transform
+	var lin_velocity = current_vehicle.linear_velocity
 	current_vehicle.queue_free()
 	if current_vehicle_name == "car":
 		current_vehicle = hover_craft_scene.instance()
@@ -32,6 +34,7 @@ func switch():
 		current_vehicle = car_scene.instance()
 		current_vehicle_name = "car"
 	current_vehicle.global_transform = glob_trans
+	current_vehicle.linear_velocity = lin_velocity
 	add_child(current_vehicle)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

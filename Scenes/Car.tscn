@@ -102,10 +102,11 @@ material/2 = null
 [node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.316, 3.87367 )
 current = true
+far = 5000.0
 target = NodePath("../TargetCam")
 speed = 5.0
 enabled = true
 script = ExtResource( 3 )
 
 [node name="TargetCam" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26935, 3.87367 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.874 )
